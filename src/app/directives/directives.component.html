@@ -1,0 +1,22 @@
+<ul class="nav nav-pills">
+  <li [class.active]="whatToShow == 'courses'"><a class="btn btn-primary" (click)="whatToShow = 'courses'">courses</a></li>
+  <li [class.active]="whatToShow == 'projects'"><a class="btn btn-primary" (click)="whatToShow = 'projects'">projects</a></li>
+  <li [class.active]="whatToShow == ''"><a class="btn btn-primary" (click)="whatToShow = 'randomInputThatTakesToDefault'">empty</a></li>
+</ul>
+
+<div [ngSwitch]="whatToShow">
+  <div *ngSwitchCase="'courses'"><app-courses></app-courses></div>
+  <div *ngSwitchCase="'projects'">projects</div>
+  <div *ngSwitchDefault>Nothing to show</div>
+</div> 
+
+<input type="text" [appFormatInput]="'uppercase'">
+<input type="text" (keyup.enter)="changeCasing($event)">
+<input type="text" #email (blur)="logValue(email.value)">
+
+<input type="text" [(ngModel)]="emailConfirm" (blur)="logModelValue();">
+
+{{'sid@yopamil.com' | validateEmail}}
+{{'sidyopamil.com' | validateEmail}}
+{{'sid@yopamil.com.' | validateEmail}}
+{{'sid@yopamil com' | validateEmail}}

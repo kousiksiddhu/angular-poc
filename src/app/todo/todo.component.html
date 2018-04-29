@@ -1,0 +1,17 @@
+<form>
+  <input 
+    type="text"
+    #todo 
+    name="todo" 
+    id="todo" 
+    (keydown.enter)="addTodo(todo)"
+    class="form-control">
+  <ul class="list-group">
+      <li 
+        class="list-group-item" 
+        *ngFor="let list of topics.controls"
+        (click)="todoDone(list)">
+          {{list.value}}
+      </li>
+    </ul>
+</form>

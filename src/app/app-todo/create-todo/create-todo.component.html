@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row justify-content-center">
+      <div 
+      class="card d-inline-block m-3" 
+      style="width: 18rem;vertical-align: top;">
+      <div class="card-body">
+        <h5 class="card-title">
+          <input type="text" class="form-control" #title name="title">
+        </h5>
+        <p class="card-text">
+          <textarea name="" id="" cols="30" rows="10" class="form-control" #para name="para"></textarea>
+        </p>
+        <div class="row">
+          <div class="col-4 pr-1">
+            <button class="btn btn-outline-secondary col-12" routerLink="/crud">Cancel</button>  
+          </div>
+          <div class="col-8 pl-1">
+            <button class="btn btn-outline-primary col-12" (click)="createCard(title,para)">Create</button>  
+          </div>
+        </div>
+      </div>
+      </div>
+  </div>
+</div>

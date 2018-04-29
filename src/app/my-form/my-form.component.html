@@ -1,0 +1,27 @@
+<form #feedbackForm="ngForm" (ngSubmit)="submitFeedBack(feedbackForm)">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input 
+      type="text"
+      minlength="3"
+      maxlength="40"
+      pattern="^[A-z]+$"
+      required 
+      ngModel 
+      name="name" 
+      id="name" 
+      class="form-control" 
+      #name="ngModel" 
+      (change)="log(name)"/>
+    <div class="alert alert-danger" *ngIf="name.dirty && !name.valid">
+      <div *ngIf="name.errors.required">Your good name is required</div>
+      <div *ngIf="name.errors.minlength">The mininum length should be above {{ name.errors.minlength.requiredLength }}</div>
+      <div *ngIf="name.errors.pattern">Your name should only contain alphabets</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="comments">Comments</label>
+    <textarea ngModel name="comments" id="comments" class="form-control"></textarea>
+  </div>
+  <button class="btn btn-primary" [disabled]="!feedbackForm.valid">Submit</button>
+</form>

@@ -1,0 +1,36 @@
+<div 
+class="card d-inline-block m-3" 
+style="width: 18rem;vertical-align: top;">
+<div class="card-body">
+  <h5 class="card-title">
+    <input type="text" class="form-control" #title name="title">
+  </h5>
+  <p class="card-text">
+    <textarea name="" id="" cols="30" rows="10" class="form-control" #para name="para"></textarea>
+  </p>
+  <button class="btn btn-outline-primary" (click)="createCard(title,para)">Create</button>  
+</div>
+</div>
+
+<div 
+  class="card d-inline-block m-3" 
+  style="width: 18rem;vertical-align: top;" 
+  *ngFor="let post of postData">
+  <div class="card-body">
+    <h5 class="card-title" [hidden]="post.editMode">
+      {{post.title}}
+    </h5>
+    <p class="card-text" [hidden]="post.editMode">
+      {{post.body}}
+    </p>
+
+    <h5 class="card-title" [hidden]="!post.editMode">
+      <input type="text" class="form-control" #updateTitle name="title" [value]="post.title">
+    </h5>
+    <p class="card-text" [hidden]="!post.editMode">
+      <textarea name="" id="" cols="30" rows="10" class="form-control" #updatePara name="para" [value]="post.body"></textarea>
+    </p>
+    <button class="btn btn-outline-primary" (click)="updateCard(post,updateTitle,updatePara)">Update</button>
+    <button class="btn btn-outline-danger" (click)="deleteCard(post)">Delete</button>
+  </div>
+</div>

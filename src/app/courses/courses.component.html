@@ -1,0 +1,25 @@
+
+
+<!-- <li *ngFor="let course of courses">
+  {{course}}
+</li>
+
+<li *ngFor="let project of projects" >
+  {{project}}
+</li> -->
+
+<h3 *ngIf="projects.length > 0;">{{getCourseTitle()}}</h3>
+
+<ul *ngIf="projects.length > 0; then projectsTemplate else emptyTemplate" ></ul>
+
+<ng-template #projectsTemplate>
+  <li *ngFor="let project of projects" [hidden]="projects.length < 2">
+    {{project}}
+  </li> 
+</ng-template>
+
+<ng-template #emptyTemplate>
+  No Projects
+</ng-template>
+
+{{complexObj[0].ss?.title}}
